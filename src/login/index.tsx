@@ -6,6 +6,11 @@ export default function Login() {
         axios({
             url: 'https://api.twitter.com/oauth/request_token?oauth_callback=https://crush-finder.vercel.app',
             method: 'post',
+            headers: {
+                'Authorization': `OAuth ` +
+                `oauth_callback="https://crush-finder.vercel.app",` +
+                `oauth_consumer_key="${process.env.REACT_APP_API_KEY}"`
+            }
         })
     };
 
